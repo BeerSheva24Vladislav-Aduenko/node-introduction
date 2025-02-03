@@ -2,4 +2,4 @@ import logger from "./logger.mjs";
 import fs from "node:fs";
 const data = fs.readFileSync("index.mjs");
 
-fs.writeFileSync('./file.txt', ["kuku", "kukureku", "Hello World!"].join('\n'))
+fs.writeFileSync('./file.txt', ["kuku", "kukureku", "Hello World!"].join('\n'), "utf-8")
