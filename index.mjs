@@ -1,7 +1,12 @@
-import stream from "./sender-data.mjs";
-let res = "";
-stream.on("data", (chunk) => res += chunk
-)
-stream.on("end", () => {
-    console.log("no more data");
-})
+// import stream from "./sender-data.mjs";
+import stream from "./file-stream.mjs";
+import writableStream from "./file-writable-stream.mjs";
+
+(async () => {
+  for await (const res of stream) {
+    console.log(res.toString());
+  }
+})();
+writableStream.write("hello");
+writableStream.write("World !!!");
+writableStream.end();
