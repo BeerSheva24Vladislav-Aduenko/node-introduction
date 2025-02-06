@@ -1,17 +1,12 @@
-import logger from "./logger.mjs";
-import fs from "node:fs";
-const data = fs.readFile("./file.txt", "base64", (err, data) => {
-  if (err) {
-    logger.error(err);
-  } else {
-    console.log(data);
-  }
-});
-console.log(data);
 
-fs.writeFile(
-  "./file.txt",
-  ["kuku", "kukureku", "Hello World!"].join("\n"),
-  "utf-16le",
-  () => logger.debug("file saved in utf-16le format")
-);
+import logger from './logger.mjs';
+import DistributionMessageLevels from './DistributionMessageLevels.mjs';
+import FilterLogMessages from './FilterLogMessages.mjs';
+const filter1 = new FilterLogMessages(logger,["hello"], "debug");
+const filter2 = new FilterLogMessages(logger,["hello", "kuku"], "debug");
+const distribution = new DistributionMessageLevels(logger);
+logger.log("debug", "Hello world");
+logger.log("debug", "kuku");
+logger.log('info', "kukureku");
+console.log(distribution.getDistribution());
+console.log(filter2.getMessage());
