@@ -1,5 +1,3 @@
-
-
 export default class PrototypeProtocol  {
     #service
     constructor(service, server) {

@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/controller/index.mjs"
   },
   "keywords": [],
   "author": "",
@@ -12,8 +13,9 @@
   "devDependencies": {
     "vitest": "^3.0.4"
   },
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
-    "introduction": "file:"
+    "introduction": "file:",
+    "nodemon": "^3.1.9"
   }
 }
